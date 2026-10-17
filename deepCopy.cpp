@@ -6,12 +6,14 @@ public:
     string name;
     double* marksPtr;
 
+    // Parameter constructor
     Student(string name,double marks){
         this->name = name;
         marksPtr = new double;
         *marksPtr = marks;
     }
 
+    // copy constructor 
     Student(Student &obj){
         this->name = obj.name;
         marksPtr = new double;
@@ -20,6 +22,12 @@ public:
 
     void getInfo(){
         cout<<name<<" "<<*marksPtr<<" "<<endl;
+    }
+
+    // destructor
+    ~Student(){
+        cout<<"Hi i am delete the everyThings"<<endl;
+        delete marksPtr;
     }
 };
 
