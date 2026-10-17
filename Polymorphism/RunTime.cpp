@@ -1,24 +1,34 @@
 #include<iostream>
 using namespace std;
 
-
-class Print{
+// Function overriding
+class Parent{
 public:
-    Print(){
-        cout<<"I am default constructor"<<endl;
-    }
-    // function overloading
-    void show(int x){
-        cout<<x<<endl;
+    void getInfo(){
+        cout<<"Parent Class"<<endl;
     }
 
-    void show(char ch){
-        cout<<ch<<endl;
+    virtual void hello(){
+        cout<<"Hello i am Parent"<<endl;
+    }
+};
+
+class Child : public Parent{
+public:
+    void getInfo(){
+        cout<<"Child Class"<<endl;
+    }
+
+    void hello(){
+        cout<<"Hello I am Child"<<endl;
     }
 };
 
 int main(){
-    Print p1;
-    p1.show(10);
-    p1.show('R');
+    Child c1;
+    c1.getInfo();
+    c1.hello();
+    Parent p1;
+    p1.getInfo();
+    p1.hello();
 }
